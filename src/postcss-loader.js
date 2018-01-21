@@ -79,7 +79,7 @@ export default {
       ...config.options,
       // Followings are never modified by user config config
       from: this.id,
-      to: this.id,
+      to: config.options && typeof config.options.extract === 'string' ? config.options.extract : (this.options && typeof this.options.extract === 'string' ? this.options.extract : this.id),
       map: this.sourceMap ?
         shouldExtract ?
           { inline: false, annotation: false } :
